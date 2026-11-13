@@ -15,6 +15,9 @@ const SITE = {
   // Opening line of every WhatsApp enquiry.
   whatsappGreeting: "Hello Meera's-The Beauty Saga, I'd like to enquire about an appointment.",
 
+  // Opening line of an appointment request sent from the form.
+  bookingGreeting: "Hello Meera's-The Beauty Saga, I'd like to book an appointment.",
+
   // Business hours, e.g. [{ days: "Monday to Saturday", time: "10:00 am to 8:00 pm" }].
   // Leave the array empty until the owner confirms them.
   hours: [],
@@ -222,39 +225,46 @@ function initEnquiries() {
   });
 
   const form = $("#enquiry");
-  const name = $("#f-name");
-  const error = $("#f-name-error");
+  const required = [$("#f-name"), $("#f-date")];
 
-  const validateName = () => {
-    const valid = name.value.trim() !== "";
+  const validate = (field) => {
+    const error = $("#" + field.id + "-error");
+    const valid = field.value.trim() !== "";
     error.hidden = valid;
     if (valid) {
-      name.removeAttribute("aria-invalid");
-      name.removeAttribute("aria-describedby");
+      field.removeAttribute("aria-invalid");
+      field.removeAttribute("aria-describedby");
     } else {
-      name.setAttribute("aria-invalid", "true");
-      name.setAttribute("aria-describedby", error.id);
+      field.setAttribute("aria-invalid", "true");
+      field.setAttribute("aria-describedby", error.id);
     }
     return valid;
   };
-  name.addEventListener("input", () => {
-    if (name.hasAttribute("aria-invalid")) validateName();
+  required.forEach((field) => {
+    field.addEventListener("input", () => {
+      if (field.hasAttribute("aria-invalid")) validate(field);
+    });
   });
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    if (!validateName()) {
-      name.focus();
+    const invalid = required.filter((field) => !validate(field));
+    if (invalid.length) {
+      invalid[0].focus();
       return;
     }
     const data = new FormData(form);
-    const lines = [SITE.whatsappGreeting, "", "Name: " + data.get("name").trim()];
-    if (data.get("service")) lines.push("Service: " + data.get("service"));
-    if (data.get("date")) {
-      const date = new Date(data.get("date") + "T00:00:00");
-      lines.push("Preferred date: " + date.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }));
-    }
+    const date = new Date(data.get("date") + "T00:00:00");
+    const lines = [
+      SITE.bookingGreeting,
+      "",
+      "Name: " + data.get("name").trim(),
+      "Service: " + (data.get("service") || "Not sure yet"),
+      "Date: " + date.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" }),
+      "Time: " + (data.get("time") || "Any time")
+    ];
     if (data.get("message").trim()) lines.push("Note: " + data.get("message").trim());
+    lines.push("", "Please confirm if this slot is available.");
     openWhatsApp(lines.join("\n"));
   });
 

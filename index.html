@@ -303,8 +303,8 @@
           </div>
 
           <form class="enquiry" id="enquiry" novalidate>
-            <h3 class="enquiry__title">Appointment enquiry</h3>
-            <p class="enquiry__intro">This opens WhatsApp with your message ready to send. Nothing is stored on this website.</p>
+            <h3 class="enquiry__title">Request an appointment</h3>
+            <p class="enquiry__intro">Fill this in and your request goes to the salon on WhatsApp. They reply there to confirm your slot.</p>
 
             <div class="field">
               <label for="f-name">Your name</label>
@@ -312,20 +312,31 @@
               <p class="field__error" id="f-name-error" hidden>Enter your name so we know who to reply to.</p>
             </div>
 
+            <div class="field">
+              <label for="f-service">Service</label>
+              <select id="f-service" name="service">
+                <option value="">Not sure yet</option>
+                <option>Hair &amp; Styling</option>
+                <option>Makeup</option>
+                <option>Bridal Beauty</option>
+                <option>Skin &amp; Beauty Treatments</option>
+              </select>
+            </div>
+
             <div class="field-pair">
               <div class="field">
-                <label for="f-service">Service</label>
-                <select id="f-service" name="service">
-                  <option value="">Not sure yet</option>
-                  <option>Hair &amp; Styling</option>
-                  <option>Makeup</option>
-                  <option>Bridal Beauty</option>
-                  <option>Skin &amp; Beauty Treatments</option>
-                </select>
+                <label for="f-date">Preferred date</label>
+                <input id="f-date" name="date" type="date" required>
+                <p class="field__error" id="f-date-error" hidden>Choose the date you'd like to come in.</p>
               </div>
               <div class="field">
-                <label for="f-date">Preferred date <span class="optional">(optional)</span></label>
-                <input id="f-date" name="date" type="date">
+                <label for="f-time">Preferred time</label>
+                <select id="f-time" name="time">
+                  <option value="">Any time</option>
+                  <option>Morning</option>
+                  <option>Afternoon</option>
+                  <option>Evening</option>
+                </select>
               </div>
             </div>
 
@@ -336,7 +347,7 @@
 
             <button class="btn btn--primary btn--whatsapp" type="submit">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsapp"/></svg>
-              Send enquiry on WhatsApp
+              Send booking request on WhatsApp
             </button>
           </form>
         </div>
