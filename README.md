@@ -24,7 +24,8 @@ Then visit http://localhost:8000.
 | Google rating of 5.0 | Reported on public listings, **not yet verified**. The page says so until `rating.verified` is set to `true` |
 | Service categories and the items under them | Proposed for the demo |
 | About text, hero description | Sample copy |
-| Phone, WhatsApp, hours, street address, map | Placeholders |
+| Phone and WhatsApp number | Supplied, set in `script.js` |
+| Hours, street address, map | Placeholders |
 | All photographs | Stock images from Unsplash. None show the salon, its staff or its clients |
 | Customer reviews | None shown. None were invented |
 
