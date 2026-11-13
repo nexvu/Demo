@@ -6,11 +6,11 @@
    ========================================================================== */
 const SITE = {
   // Phone number as it should be displayed, e.g. "+91 98765 43210".
-  phone: "+91 98788 00370",
+  phone: "+91 98269 10703",
 
   // WhatsApp number in international format, digits only, e.g. "919876543210".
   // While empty, WhatsApp buttons show a demo notice instead of opening a chat.
-  whatsapp: "919878800370",
+  whatsapp: "919826910703",
 
   // Opening line of every WhatsApp enquiry.
   whatsappGreeting: "Hello Meera's-The Beauty Saga, I'd like to enquire about an appointment.",
