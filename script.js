@@ -1,72 +1,116 @@
 /* ==========================================================================
-   Meera's-The Beauty Saga — design concept
+   Meera's – The Beauty Saga — design concept
 
-   EDIT HERE: every unverified business detail lives in SITE below.
-   Leave a value empty ("") to keep showing its placeholder on the page.
+   EDIT HERE: every business detail lives in SITE below. Change a value and
+   it updates everywhere on the page (header, contact, footer, bottom bar).
    ========================================================================== */
 const SITE = {
-  // Phone number as it should be displayed, e.g. "+91 98765 43210".
-  phone: "+91 98269 10703",
+  // Phone numbers as they should be displayed.
+  phone: "+91 70009 01183",    // primary; also used by the "Call" button
+  phoneAlt: "+91 98269 10703", // second number; leave "" to hide it
 
-  // WhatsApp number in international format, digits only, e.g. "919876543210".
-  // While empty, WhatsApp buttons show a demo notice instead of opening a chat.
-  whatsapp: "919826910703",
+  // WhatsApp number in international format, digits only.
+  // If left empty, WhatsApp buttons show a notice instead of opening a chat.
+  whatsapp: "917000901183",
 
-  // Opening line of every WhatsApp enquiry.
-  whatsappGreeting: "Hello Meera's-The Beauty Saga, I'd like to enquire about an appointment.",
+  // Opening lines of the WhatsApp messages.
+  whatsappGreeting: "Hello Meera's – The Beauty Saga, I'd like to enquire about an appointment.",
+  bookingGreeting: "Hello Meera's – The Beauty Saga, I'd like to book an appointment.",
+  coursesGreeting: "Hello Meera's – The Beauty Saga, I'd like to know more about your academy courses.",
 
-  // Opening line of an appointment request sent from the form.
-  bookingGreeting: "Hello Meera's-The Beauty Saga, I'd like to book an appointment.",
+  // Address, one array item per line.
+  address: [
+    "630, Narendra Tiwari Marg, Sector D,",
+    "Sudama Nagar, Indore,",
+    "Madhya Pradesh 452001"
+  ],
 
-  // Business hours, e.g. [{ days: "Monday to Saturday", time: "10:00 am to 8:00 pm" }].
-  // Leave the array empty until the owner confirms them.
-  hours: [],
-
-  // Google rating. Set verified to true once it has been checked against the
-  // salon's Google Business Profile; the "to be confirmed" note then disappears.
-  rating: {
-    value: "5.0",
-    verified: false,
-    reviewsUrl: "" // direct link to the Google reviews page, when available
+  // Business hours. Closing time is from the Google listing.
+  // Fill in "opens" (e.g. "10:00 am") and "days" (e.g. "Monday to Sunday")
+  // once confirmed; while they are empty the page says "Open until 8:30 pm".
+  hours: {
+    days: "",
+    opens: "",
+    closes: "8:30 pm"
   },
 
-  // Direct Google Maps link to the salon, when available.
-  mapsUrl: ""
+  // Google rating, review count and the link to the Google listing.
+  rating: {
+    value: "5.0",
+    count: "870+",
+    reviewsUrl: "https://g.co/kgs/CBFCUQE"
+  },
+
+  // Link used by "Open the Google listing for directions".
+  mapsUrl: "https://g.co/kgs/CBFCUQE",
+
+  instagram: {
+    handle: "@meerasthebeautysaga",
+    url: "https://www.instagram.com/meerasthebeautysaga"
+  },
+
+  // Bridal package prices, shown in the "Bridal packages" section.
+  // Replace "₹ —" with the real price, e.g. "₹ 15,000" or "From ₹ 15,000".
+  bridalPrices: {
+    engagement: "₹ —",
+    bridal: "₹ —",
+    prebridal: "₹ —"
+  }
 };
 
 /* ---------- Helpers ---------- */
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 const desktop = window.matchMedia("(min-width: 60rem)");
+const telHref = (number) => "tel:" + number.replace(/[^\d+]/g, "");
+
+function hoursText() {
+  const { days, opens, closes } = SITE.hours;
+  if (!closes) return "";
+  const time = opens ? `${opens} to ${closes}` : `Open until ${closes}`;
+  return days ? `${days}, ${opens ? time : time.toLowerCase()}` : time;
+}
 
 /* ---------- Apply SITE details to the page ---------- */
 function applySiteDetails() {
-  if (SITE.phone) {
-    const link = document.createElement("a");
-    link.className = "text-link";
-    link.href = "tel:" + SITE.phone.replace(/[^\d+]/g, "");
-    link.textContent = SITE.phone;
-    $("[data-phone]").replaceChildren(link);
+  $$("[data-phone]").forEach((link) => {
+    const number = link.dataset.phone === "alt" ? SITE.phoneAlt : SITE.phone;
+    if (!number) {
+      (link.closest("p") || link).hidden = true;
+      return;
+    }
+    link.href = telHref(number);
+    link.textContent = number;
+  });
+  $$("[data-phone-link]").forEach((link) => {
+    if (SITE.phone) link.href = telHref(SITE.phone);
+  });
+
+  if (SITE.address.length) {
+    $$("[data-address]").forEach((el) => {
+      el.replaceChildren();
+      SITE.address.forEach((line, i) => {
+        if (i) el.append(document.createElement("br"));
+        el.append(line);
+      });
+    });
   }
 
-  if (SITE.hours.length) {
-    $("[data-hours]").replaceChildren(
-      ...SITE.hours.map(({ days, time }) => {
-        const row = document.createElement("li");
-        const d = document.createElement("span");
-        const t = document.createElement("span");
-        d.textContent = days;
-        t.textContent = time;
-        row.append(d, t);
-        return row;
-      })
-    );
-  }
+  const hours = hoursText();
+  if (hours) $$("[data-hours]").forEach((el) => { el.textContent = hours; });
 
-  $("[data-rating-value]").textContent = SITE.rating.value;
-  if (SITE.rating.verified) $("[data-rating-status]").hidden = true;
-  if (SITE.rating.reviewsUrl) $("[data-reviews-link]").href = SITE.rating.reviewsUrl;
-  if (SITE.mapsUrl) $("[data-maps-link]").href = SITE.mapsUrl;
+  $$("[data-rating-value]").forEach((el) => { el.textContent = SITE.rating.value; });
+  $$("[data-rating-count]").forEach((el) => { el.textContent = SITE.rating.count; });
+  if (SITE.rating.reviewsUrl) $$("[data-reviews-link]").forEach((el) => { el.href = SITE.rating.reviewsUrl; });
+  if (SITE.mapsUrl) $$("[data-maps-link]").forEach((el) => { el.href = SITE.mapsUrl; });
+
+  $$("[data-instagram-link]").forEach((el) => { el.href = SITE.instagram.url; });
+  $$("[data-instagram-handle]").forEach((el) => { el.textContent = SITE.instagram.handle; });
+
+  $$("[data-price]").forEach((el) => {
+    const price = SITE.bridalPrices[el.dataset.price];
+    if (price) el.textContent = price;
+  });
 }
 
 /* ---------- Header and navigation ---------- */
@@ -138,10 +182,14 @@ function initServices() {
   );
   items.forEach((item) => observer.observe(item));
 
-  // "Enquire about ..." links pre-select the service in the enquiry form
+  // "Enquire about ..." links pre-fill the booking form.
+  // data-enquire selects the service; data-enquire-note adds a line to the message.
   $$("[data-enquire]").forEach((link) => {
     link.addEventListener("click", () => {
       $("#f-service").value = link.dataset.enquire;
+      const note = link.dataset.enquireNote;
+      const message = $("#f-message");
+      if (note && (!message.value.trim() || message.value.startsWith("Package: "))) message.value = note;
     });
   });
 }
@@ -177,7 +225,7 @@ function initGallery() {
     const source = $("img", visible[index]);
     image.src = source.currentSrc || source.src;
     image.alt = source.alt;
-    caption.textContent = source.alt + " (stock photograph)";
+    caption.textContent = source.alt;
     count.textContent = `${index + 1} / ${visible.length}`;
   };
 
@@ -204,23 +252,39 @@ function initGallery() {
   });
 }
 
+/* ---------- FAQ accordion ---------- */
+function initFaq() {
+  $$(".faq__q").forEach((button) => {
+    const panel = document.getElementById(button.getAttribute("aria-controls"));
+    panel.hidden = true; // answers stay readable if JavaScript never runs
+    button.addEventListener("click", () => {
+      const open = button.getAttribute("aria-expanded") !== "true";
+      button.setAttribute("aria-expanded", String(open));
+      panel.hidden = !open;
+    });
+  });
+}
+
 /* ---------- WhatsApp enquiries ---------- */
-function openWhatsApp(message) {
-  if (SITE.whatsapp) {
-    const url = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener");
-    return;
-  }
-  // Placeholder number: show what would be sent instead of opening a broken chat
+const whatsappUrl = (message) => `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+
+function showNotice(message) {
+  // No number set: show what would be sent instead of opening a broken chat
   $("#notice-message").textContent = message;
   $("#notice").showModal();
 }
 
 function initEnquiries() {
+  // Plain WhatsApp links: data-whatsapp="courses" uses the academy greeting
   $$("[data-whatsapp]").forEach((link) => {
+    const message = link.dataset.whatsapp === "courses" ? SITE.coursesGreeting : SITE.whatsappGreeting;
+    if (SITE.whatsapp) {
+      link.href = whatsappUrl(message);
+      return;
+    }
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      openWhatsApp(SITE.whatsappGreeting);
+      showNotice(message);
     });
   });
 
@@ -260,12 +324,16 @@ function initEnquiries() {
       "",
       "Name: " + data.get("name").trim(),
       "Service: " + (data.get("service") || "Not sure yet"),
+      "Where: " + data.get("place"),
       "Date: " + date.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" }),
       "Time: " + (data.get("time") || "Any time")
     ];
     if (data.get("message").trim()) lines.push("Note: " + data.get("message").trim());
     lines.push("", "Please confirm if this slot is available.");
-    openWhatsApp(lines.join("\n"));
+    const message = lines.join("\n");
+
+    if (SITE.whatsapp) window.open(whatsappUrl(message), "_blank", "noopener");
+    else showNotice(message);
   });
 
   // Appointments can't be requested for a past date
@@ -294,5 +362,6 @@ applySiteDetails();
 initNavigation();
 initServices();
 initGallery();
+initFaq();
 initEnquiries();
 initReveal();

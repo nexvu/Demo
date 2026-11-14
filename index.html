@@ -2,11 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meera's-The Beauty Saga | Beauty salon in Sudama Nagar, Indore (design concept)</title>
-  <meta name="description" content="Website design concept for Meera's-The Beauty Saga, a beauty salon in Sudama Nagar, Indore. Demo content, not an official website.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Meera's – The Beauty Saga | Beauty salon &amp; academy in Sudama Nagar, Indore</title>
+  <meta name="description" content="Makeup, skin, hair and nails in Sudama Nagar, Indore. Bridal makeup, home service and a beauty academy. Rated 5.0 from 870+ Google reviews.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#3c0e18">
+
+  <!-- Link previews (WhatsApp, Facebook, X). EDIT: change the URLs if the site moves. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Meera's – The Beauty Saga">
+  <meta property="og:title" content="Meera's – The Beauty Saga | Beauty salon &amp; academy, Indore">
+  <meta property="og:description" content="Makeup, skin, hair and nails in Sudama Nagar, Indore. Bridal makeup, home service and a beauty academy. Rated 5.0 from 870+ Google reviews.">
+  <meta property="og:url" content="https://nexvu.github.io/Demo/">
+  <meta property="og:image" content="https://nexvu.github.io/Demo/assets/img/hero-portrait.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1100">
+  <meta property="og:image:height" content="1400">
+  <meta property="og:image:alt" content="Woman in a red silk saree with gold jewellery, bridal makeup and a maang tikka">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meera's – The Beauty Saga | Beauty salon &amp; academy, Indore">
+  <meta name="twitter:description" content="Makeup, skin, hair and nails in Sudama Nagar, Indore. Bridal makeup, home service and a beauty academy. Rated 5.0 from 870+ Google reviews.">
+  <meta name="twitter:image" content="https://nexvu.github.io/Demo/assets/img/hero-portrait.jpg">
+  <meta name="twitter:image:alt" content="Woman in a red silk saree with gold jewellery, bridal makeup and a maang tikka">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,12 +39,12 @@
 
   <!-- DEMO NOTICE: remove this bar once the business owner approves the site. -->
   <p class="demo-bar">
-    Design concept prepared for Meera's-The Beauty Saga. Not an official website. Sample text and stock photographs throughout.
+    Design concept prepared for Meera's – The Beauty Saga. Not an official website. Sample text and stock photographs throughout.
   </p>
 
   <header class="site-header" id="top">
     <div class="wrap site-header__inner">
-      <a class="wordmark" href="#home" aria-label="Meera's-The Beauty Saga, home">
+      <a class="wordmark" href="#home" aria-label="Meera's – The Beauty Saga, home">
         <span class="wordmark__name">Meera's</span>
         <span class="wordmark__tag">the beauty saga</span>
       </a>
@@ -38,10 +56,11 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul class="site-nav__list">
-          <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#bridal">Bridal</a></li>
           <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#academy">Academy</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -56,7 +75,7 @@
     <section class="hero" id="home">
       <div class="wrap hero__inner">
         <div class="hero__text">
-          <p class="hero__place">Meera's-The Beauty Saga &nbsp;/&nbsp; Sudama Nagar, Indore</p>
+          <p class="hero__place">Meera's – The Beauty Saga &nbsp;/&nbsp; Sudama Nagar, Indore</p>
           <h1 class="hero__title">
             <span>Beauty, Elegance</span>
             <span>&amp; Confidence</span>
@@ -64,47 +83,95 @@
           </h1>
           <!-- EDIT: hero description (sample copy) -->
           <p class="hero__lede">
-            A neighbourhood beauty salon for hair, makeup, bridal looks and skin care. Unhurried appointments, careful hands, and a mirror you'll enjoy looking into.
+            Makeup, skin, hair and nails under one roof, with bridal looks planned to the last pin. Unhurried appointments, careful hands, and a mirror you'll enjoy looking into.
           </p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#services">Explore services</a>
-            <a class="btn btn--ghost" href="#enquiry">Enquire now</a>
+            <a class="btn btn--primary" href="#enquiry">Book an appointment</a>
+            <a class="btn btn--ghost" href="#services">Explore services</a>
           </div>
+
+          <!-- EDIT: rating and review count are set in script.js (SITE.rating). -->
+          <ul class="hero__facts">
+            <li>
+              <a class="hero__rating" href="#reviews">
+                <span class="hero__rating-value"><span data-rating-value>5.0</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+                </span>
+                <span>from <span data-rating-count>870+</span> Google reviews</span>
+              </a>
+            </li>
+            <li class="badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-home"/></svg>
+              Home service available
+            </li>
+          </ul>
         </div>
 
         <figure class="hero__figure">
           <div class="arch arch--hero">
             <img src="assets/img/hero-portrait.jpg" width="1100" height="1400" alt="Woman in a red silk saree with gold jewellery, bridal makeup and a maang tikka" fetchpriority="high">
           </div>
-          <figcaption class="photo-note">Stock photograph, for illustration</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
+    <!-- ============ ABOUT + FOUNDERS ============ -->
     <section class="section about" id="about">
-      <div class="wrap about__inner">
-        <div class="about__media">
-          <img class="about__img-main" data-reveal src="assets/img/about-interior.jpg" width="1200" height="800" loading="lazy" alt="Bright salon interior with styling chairs facing a long mirror">
-          <div class="arch about__img-arch" data-reveal>
-            <img src="assets/img/about-hair.jpg" width="900" height="601" loading="lazy" alt="Woman seen from behind lifting her long wavy hair">
+      <div class="wrap">
+        <div class="about__inner">
+          <div class="about__media">
+            <img class="about__img-main" data-reveal src="assets/img/about-interior.jpg" width="1200" height="800" loading="lazy" alt="Bright salon interior with styling chairs facing a long mirror">
+            <div class="arch about__img-arch" data-reveal>
+              <img src="assets/img/about-hair.jpg" width="900" height="601" loading="lazy" alt="Woman seen from behind lifting her long wavy hair">
+            </div>
+          </div>
+
+          <div class="about__text">
+            <h2 class="section-title">A salon for the days that matter, and the ordinary ones too</h2>
+            <p class="lede">
+              Meera's – The Beauty Saga is a beauty salon and academy in Sudama Nagar, Indore, founded and run by Nikita and Pinky.
+            </p>
+            <!-- EDIT: sample copy below. Replace with the owners' own words. -->
+            <p>
+              Some visits are for a wedding morning. Others are a quick tidy-up before the week begins. Either way, the idea is the same: listen first, take the time the work needs, and send you home looking like yourself on a very good day.
+            </p>
+            <p>
+              Makeup, skin, hair and nails are all done here, and for the days you can't come in, the team can come to you.
+            </p>
           </div>
         </div>
 
-        <div class="about__text">
-          <h2 class="section-title">A salon for the days that matter, and the ordinary ones too</h2>
-          <!-- CONFIRMED FACT: name, category and locality. -->
-          <p class="lede">
-            Meera's-The Beauty Saga is a beauty salon in Sudama Nagar, Indore.
-          </p>
-          <!-- EDIT: everything below is sample copy. Replace with the owner's own words. -->
-          <p>
-            Some visits are for a wedding morning. Others are a quick tidy-up before the week begins. Either way, the idea is the same: listen first, take the time the work needs, and send you home looking like yourself on a very good day.
-          </p>
-          <p>
-            This space is reserved for the salon's own story, told in the owner's words: how it began, who you'll meet in the chair, and what the team cares about most.
-          </p>
-          <p class="sample-note">Sample text. The salon's real story goes here.</p>
+        <!-- Meet the founders -->
+        <div class="founders" id="founders">
+          <h3 class="founders__title">Meet the founders</h3>
+          <ul class="founders__list">
+            <li class="founder">
+              <!-- PLACEHOLDER PORTRAIT: replace this whole <div> with
+                   <div class="arch portrait"><img src="assets/img/founder-nikita.jpg" width="600" height="800" loading="lazy" alt="Nikita, co-founder of Meera's"></div> -->
+              <div class="arch portrait portrait--empty" role="img" aria-label="Portrait of Nikita, to be added">
+                <span aria-hidden="true">N</span>
+              </div>
+              <div class="founder__text">
+                <h4 class="founder__name">Nikita</h4>
+                <p class="founder__role">Co-founder</p>
+                <!-- PLACEHOLDER BIO: replace with Nikita's own short bio (what she does at the salon, how long she has been doing it). No credentials have been assumed. -->
+                <p class="founder__bio">Nikita runs Meera's alongside Pinky. Her story, in her own words, goes here.</p>
+              </div>
+            </li>
+            <li class="founder">
+              <!-- PLACEHOLDER PORTRAIT: replace this whole <div> with
+                   <div class="arch portrait"><img src="assets/img/founder-pinky.jpg" width="600" height="800" loading="lazy" alt="Pinky, co-founder of Meera's"></div> -->
+              <div class="arch portrait portrait--empty" role="img" aria-label="Portrait of Pinky, to be added">
+                <span aria-hidden="true">P</span>
+              </div>
+              <div class="founder__text">
+                <h4 class="founder__name">Pinky</h4>
+                <p class="founder__role">Co-founder</p>
+                <!-- PLACEHOLDER BIO: replace with Pinky's own short bio. No credentials have been assumed. -->
+                <p class="founder__bio">Pinky runs Meera's alongside Nikita. Her story, in her own words, goes here.</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -115,17 +182,18 @@
         <header class="section-head">
           <h2 class="section-title">Services</h2>
           <p class="section-head__intro">
-            Four ways to spend time in the chair. Prices depend on the look and the length of the appointment, so ask and you'll get a clear quote.
+            Five ways to spend time in the chair, at the salon or at your home. Prices depend on the look and the length of the appointment, so ask and you'll get a clear quote.
           </p>
-          <p class="sample-note">Proposed categories for this demo. The salon's confirmed menu will replace them.</p>
         </header>
 
         <div class="services__body">
-          <div class="services__stage" aria-hidden="true">
-            <img class="is-active" data-stage="hair" src="assets/img/service-hair.jpg" width="900" height="1125" loading="lazy" alt="">
-            <img data-stage="makeup" src="assets/img/service-makeup.jpg" width="900" height="1125" loading="lazy" alt="">
-            <img data-stage="bridal" src="assets/img/service-bridal.jpg" width="900" height="1125" loading="lazy" alt="">
-            <img data-stage="skin" src="assets/img/service-skin.jpg" width="900" height="1125" loading="lazy" alt="">
+          <!-- Large image shown on desktop; it follows the category being read. -->
+          <div class="services__stage">
+            <img class="is-active" data-stage="hair" src="assets/img/service-hair.jpg" width="900" height="1125" loading="lazy" alt="Stylist curling a client's hair with a curling iron">
+            <img data-stage="makeup" src="assets/img/service-makeup.jpg" width="900" height="1125" loading="lazy" alt="Close-up of bridal makeup with bronze eyeshadow, a nath and kundan jewellery">
+            <img data-stage="bridal" src="assets/img/service-bridal.jpg" width="900" height="1125" loading="lazy" alt="Woman in an ivory lehenga with a flowing dupatta">
+            <img data-stage="skin" src="assets/img/service-skin.jpg" width="900" height="1125" loading="lazy" alt="Client relaxing during a facial with a cream mask">
+            <img data-stage="nails" src="assets/img/service-nails.jpg" width="900" height="1125" loading="lazy" alt="Hand with pearl-pink nail art and gold studs holding a sprig of eucalyptus">
           </div>
 
           <!-- EDIT: each <li class="service"> is one category. Delete a block to remove it. -->
@@ -146,7 +214,7 @@
             </li>
 
             <li class="service" data-service="makeup">
-              <img class="service__img" src="assets/img/service-makeup.jpg" width="900" height="1125" loading="lazy" alt="Makeup artist applying lip colour to a client">
+              <img class="service__img" src="assets/img/service-makeup.jpg" width="900" height="1125" loading="lazy" alt="Close-up of bridal makeup with bronze eyeshadow, a nath and kundan jewellery">
               <div class="service__content">
                 <h3 class="service__name">Makeup</h3>
                 <p class="service__desc">From a soft daytime look to a full evening face, matched to your skin and your outfit.</p>
@@ -171,7 +239,7 @@
                   <li>Pre-bridal care</li>
                   <li>Trial sessions</li>
                 </ul>
-                <a class="text-link" href="#enquiry" data-enquire="Bridal Beauty">Enquire about bridal beauty</a>
+                <a class="text-link" href="#bridal">See bridal packages</a>
               </div>
             </li>
 
@@ -184,13 +252,77 @@
                   <li>Facials and clean-ups</li>
                   <li>Threading</li>
                   <li>Waxing</li>
-                  <li>Manicure and pedicure</li>
+                  <li>De-tan</li>
                 </ul>
                 <a class="text-link" href="#enquiry" data-enquire="Skin &amp; Beauty Treatments">Enquire about skin treatments</a>
               </div>
             </li>
+
+            <li class="service" data-service="nails">
+              <img class="service__img" src="assets/img/service-nails.jpg" width="900" height="1125" loading="lazy" alt="Hand with pearl-pink nail art and gold studs holding a sprig of eucalyptus">
+              <div class="service__content">
+                <h3 class="service__name">Nails</h3>
+                <p class="service__desc">Neat, healthy nails for every day, and something more decorative when the occasion asks.</p>
+                <ul class="service__items">
+                  <li>Manicure</li>
+                  <li>Pedicure</li>
+                  <li>Nail art</li>
+                  <li>Gel polish and extensions</li>
+                </ul>
+                <a class="text-link" href="#enquiry" data-enquire="Nails">Enquire about nails</a>
+              </div>
+            </li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ BRIDAL PACKAGES ============ -->
+    <section class="section bridal" id="bridal">
+      <div class="wrap">
+        <header class="section-head">
+          <h2 class="section-title">Bridal packages</h2>
+          <p class="section-head__intro">
+            Three starting points. Each one is adjusted to your functions, your outfits and how you want to look in the photographs.
+          </p>
+        </header>
+
+        <!-- EDIT: prices are set in ONE place: script.js, SITE.bridalPrices.
+             Names and inclusions below are samples; edit them here. -->
+        <ul class="tiers">
+          <li class="tier">
+            <h3 class="tier__name">Engagement</h3>
+            <p class="tier__price"><span class="visually-hidden">Price: </span><span data-price="engagement">₹ —</span></p>
+            <ul class="tier__items">
+              <li>Makeup for one function</li>
+              <li>Hairstyling</li>
+              <li>Saree or dupatta draping</li>
+            </ul>
+            <a class="text-link" href="#enquiry" data-enquire="Bridal Beauty" data-enquire-note="Package: Engagement">Enquire about Engagement</a>
+          </li>
+          <li class="tier">
+            <h3 class="tier__name">Bridal</h3>
+            <p class="tier__price"><span class="visually-hidden">Price: </span><span data-price="bridal">₹ —</span></p>
+            <ul class="tier__items">
+              <li>Wedding-day makeup</li>
+              <li>Hairstyling and jewellery setting</li>
+              <li>Draping</li>
+              <li>Trial session before the day</li>
+            </ul>
+            <a class="text-link" href="#enquiry" data-enquire="Bridal Beauty" data-enquire-note="Package: Bridal">Enquire about Bridal</a>
+          </li>
+          <li class="tier">
+            <h3 class="tier__name">Bridal + Pre-bridal</h3>
+            <p class="tier__price"><span class="visually-hidden">Price: </span><span data-price="prebridal">₹ —</span></p>
+            <ul class="tier__items">
+              <li>Everything in Bridal</li>
+              <li>Pre-bridal skin and hair care</li>
+              <li>Manicure and pedicure</li>
+              <li>Planned over the weeks before the wedding</li>
+            </ul>
+            <a class="text-link" href="#enquiry" data-enquire="Bridal Beauty" data-enquire-note="Package: Bridal + Pre-bridal">Enquire about Bridal + Pre-bridal</a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -200,47 +332,87 @@
         <header class="section-head section-head--split">
           <div>
             <h2 class="section-title">Gallery</h2>
-            <p class="section-head__intro">A mood board for now. The salon's own photographs will take its place.</p>
+            <p class="section-head__intro">Looks, details and the room they happen in.</p>
           </div>
           <div class="filters" role="group" aria-label="Filter gallery">
             <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
             <button type="button" class="filter" data-filter="makeup" aria-pressed="false">Makeup</button>
             <button type="button" class="filter" data-filter="hair" aria-pressed="false">Hair</button>
             <button type="button" class="filter" data-filter="bridal" aria-pressed="false">Bridal</button>
+            <button type="button" class="filter" data-filter="nails" aria-pressed="false">Nails</button>
             <button type="button" class="filter" data-filter="interior" aria-pressed="false">Salon</button>
           </div>
         </header>
 
         <!-- EDIT: replace these stock images with the salon's own photographs. -->
         <ul class="gallery__grid" id="gallery-grid">
-          <li data-category="makeup"><button type="button" class="tile"><img src="assets/img/gallery-makeup-palette.jpg" width="1000" height="1333" loading="lazy" alt="Eyeshadow palette, brushes and makeup laid out on a white table"></button></li>
-          <li data-category="hair"><button type="button" class="tile"><img src="assets/img/gallery-hair-blowdry.jpg" width="1000" height="668" loading="lazy" alt="Stylist blow-drying a client's hair with a round brush"></button></li>
+          <li data-category="makeup"><button type="button" class="tile"><img src="assets/img/gallery-makeup-artist.jpg" width="1000" height="667" loading="lazy" alt="Makeup artist applying eyeliner over shimmering green and gold eyeshadow"></button></li>
+          <li data-category="hair"><button type="button" class="tile"><img src="assets/img/gallery-hair-updo.jpg" width="1000" height="1503" loading="lazy" alt="Bride in profile with a rolled updo pinned with red flowers and a maang tikka"></button></li>
           <li data-category="bridal"><button type="button" class="tile"><img src="assets/img/gallery-bridal-mehndi.jpg" width="1000" height="664" loading="lazy" alt="Bride's hands with mehndi and gold bangles during a wedding ceremony"></button></li>
-          <li data-category="interior"><button type="button" class="tile"><img src="assets/img/gallery-interior-mirrors.jpg" width="1000" height="667" loading="lazy" alt="Salon interior with round mirrors and a row of styling chairs"></button></li>
-          <li data-category="makeup"><button type="button" class="tile"><img src="assets/img/gallery-makeup-flatlay.jpg" width="1000" height="1000" loading="lazy" alt="Brushes, lipstick and bronzer arranged on a warm beige surface"></button></li>
+          <li data-category="nails"><button type="button" class="tile"><img src="assets/img/gallery-nails-salon.jpg" width="1000" height="667" loading="lazy" alt="Nail technician shaping a client's nails at a manicure table"></button></li>
+          <li data-category="interior"><button type="button" class="tile"><img src="assets/img/gallery-interior-arch.jpg" width="1000" height="1429" loading="lazy" alt="Arched, softly lit wall niche lined with nail polish, between two potted palms"></button></li>
+          <li data-category="makeup"><button type="button" class="tile"><img src="assets/img/gallery-makeup-palette.jpg" width="1000" height="667" loading="lazy" alt="Blush palette with a powder brush and a gold jhumka earring resting on it"></button></li>
           <li data-category="bridal"><button type="button" class="tile"><img src="assets/img/gallery-bridal-ceremony.jpg" width="1000" height="667" loading="lazy" alt="Bride and groom in traditional dress at their wedding ceremony"></button></li>
-          <li data-category="makeup"><button type="button" class="tile"><img src="assets/img/gallery-makeup-brushes.jpg" width="1000" height="667" loading="lazy" alt="Makeup brushes arranged in a holder"></button></li>
+          <li data-category="hair"><button type="button" class="tile"><img src="assets/img/gallery-hair-curls.jpg" width="1000" height="1500" loading="lazy" alt="Woman with long, dark curls running a hand through her hair"></button></li>
+          <li data-category="makeup"><button type="button" class="tile"><img src="assets/img/gallery-makeup-flatlay.jpg" width="1000" height="1000" loading="lazy" alt="Brushes, lipstick and bronzer arranged on a warm beige surface"></button></li>
           <li data-category="bridal"><button type="button" class="tile"><img src="assets/img/gallery-bridal-jewellery.jpg" width="1000" height="693" loading="lazy" alt="Gold bridal necklace and earrings set with red stones"></button></li>
-          <li data-category="hair"><button type="button" class="tile"><img src="assets/img/gallery-hair-curls.jpg" width="1000" height="1250" loading="lazy" alt="Woman with long curled hair against a pink wall"></button></li>
-          <li data-category="interior"><button type="button" class="tile"><img src="assets/img/gallery-interior-dark.jpg" width="1000" height="694" loading="lazy" alt="Salon wall with three round mirrors and a styling counter"></button></li>
-          <li data-category="hair"><button type="button" class="tile"><img src="assets/img/gallery-hair-styling.jpg" width="1000" height="668" loading="lazy" alt="Hairdresser styling a client's hair in a sunlit salon"></button></li>
+          <li data-category="nails"><button type="button" class="tile"><img src="assets/img/gallery-nails-marigold.jpg" width="1000" height="1500" loading="lazy" alt="Hand with glossy taupe almond nails held against marigold flowers"></button></li>
+          <li data-category="interior"><button type="button" class="tile"><img src="assets/img/gallery-interior-wash.jpg" width="1000" height="960" loading="lazy" alt="Hair wash station with a black chair, white tiles and woven poufs"></button></li>
+          <li data-category="hair"><button type="button" class="tile"><img src="assets/img/gallery-hair-long.jpg" width="1000" height="1500" loading="lazy" alt="Woman in profile with long, straight dark hair, smiling outdoors"></button></li>
           <li data-category="interior"><button type="button" class="tile"><img src="assets/img/gallery-interior-chairs.jpg" width="1000" height="750" loading="lazy" alt="Row of salon chairs beside tall windows"></button></li>
         </ul>
-        <p class="sample-note gallery__note">Stock photographs for inspiration only. They do not show the salon's premises or its work.</p>
+      </div>
+    </section>
+
+    <!-- ============ ACADEMY ============ -->
+    <section class="section academy" id="academy">
+      <div class="wrap academy__inner">
+        <div class="academy__media">
+          <img data-reveal src="assets/img/academy-class.jpg" width="1200" height="900" loading="lazy" alt="Makeup artist working on a bride's eye makeup with a palette in hand">
+        </div>
+
+        <div class="academy__text">
+          <h2 class="section-title">The Academy</h2>
+          <p class="lede">Meera's teaches, too.</p>
+          <p class="academy__intro">
+            Courses in makeup and beauty for people who want to make this their work, or simply get very good at it. Ask about what's running and the team will send you the details.
+          </p>
+
+          <!-- EDIT: PLACEHOLDER course names and descriptions. Replace with the academy's real courses.
+               No fees, dates or certifications are shown because none have been confirmed. -->
+          <ul class="courses">
+            <li class="course">
+              <h3 class="course__name">Professional Makeup</h3>
+              <p class="course__desc">Skin preparation, day and evening looks, and bridal makeup.</p>
+            </li>
+            <li class="course">
+              <h3 class="course__name">Hair Styling</h3>
+              <p class="course__desc">Blow-dries, curls, buns and occasion hairstyles.</p>
+            </li>
+            <li class="course">
+              <h3 class="course__name">Nail Art &amp; Extensions</h3>
+              <p class="course__desc">Nail care, gel polish, extensions and art.</p>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="https://wa.me/917000901183" data-whatsapp="courses" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsapp"/></svg>
+            Enquire about courses
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- ============ REVIEWS ============ -->
     <section class="section reviews" id="reviews">
       <div class="wrap reviews__inner">
+        <!-- EDIT: rating value, review count and the Google link are set in script.js (SITE.rating). -->
         <div class="rating" data-reveal>
-          <!-- EDIT: rating value is set in script.js (SITE.rating). -->
           <p class="rating__value"><span data-rating-value>5.0</span></p>
           <div class="rating__stars" role="img" aria-label="Five out of five stars">
             <svg viewBox="0 0 120 24" aria-hidden="true"><use href="#star" x="0" width="24" height="24"/><use href="#star" x="24" width="24" height="24"/><use href="#star" x="48" width="24" height="24"/><use href="#star" x="72" width="24" height="24"/><use href="#star" x="96" width="24" height="24"/></svg>
           </div>
-          <p class="rating__source">Google rating</p>
-          <p class="rating__status" data-rating-status>As reported on public listings. To be confirmed against the salon's Google profile before launch.</p>
+          <p class="rating__source">from <span data-rating-count>870+</span> Google reviews</p>
         </div>
 
         <div class="reviews__text">
@@ -249,9 +421,74 @@
             The kindest words about a salon are the ones its clients choose to write themselves.
           </p>
           <p>
-            No testimonials are shown in this concept, because none have been invented. Once the owner picks the reviews they'd like to feature, they will sit here with the reviewer's permission.
+            More than 870 of them have, on Google, and the rating still stands at a full five stars. Read them there, complete and unedited.
           </p>
-          <a class="btn btn--light" data-reviews-link href="https://www.google.com/maps/search/?api=1&amp;query=Meera%27s-The+Beauty+Saga+Sudama+Nagar+Indore" target="_blank" rel="noopener">Read reviews on Google</a>
+          <a class="btn btn--light" data-reviews-link href="https://g.co/kgs/CBFCUQE" target="_blank" rel="noopener">Read all reviews on Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTAGRAM ============ -->
+    <section class="section insta" id="instagram">
+      <div class="wrap">
+        <header class="section-head section-head--split">
+          <div>
+            <h2 class="section-title">On Instagram</h2>
+            <p class="section-head__intro">New looks, bridal work and behind-the-scenes from the salon.</p>
+          </div>
+          <a class="btn btn--ghost" data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-instagram"/></svg>
+            Follow <span data-instagram-handle>@meerasthebeautysaga</span>
+          </a>
+        </header>
+
+        <!-- EDIT: replace these six tiles with the salon's own Instagram photographs (600 × 600). -->
+        <ul class="insta__grid">
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-1.jpg" width="600" height="600" loading="lazy" alt="Bridal makeup close-up with pink shimmer eyeshadow and a nath"></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-2.jpg" width="600" height="600" loading="lazy" alt="Hands with mandala mehndi and long nude nails against a velvet lehenga"></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-4.jpg" width="600" height="600" loading="lazy" alt="Bride in red with a side-swept updo and red roses in her hair"></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-3.jpg" width="600" height="600" loading="lazy" alt="Hand with a soft nude manicure"></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-5.jpg" width="600" height="600" loading="lazy" alt="Smiling bride with a kundan maang tikka covering her laugh with her hand"></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-6.jpg" width="600" height="600" loading="lazy" alt="Bride's hands with deep red mehndi, gold bangles and red nails"></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq" id="faq">
+      <div class="wrap faq__inner">
+        <header class="faq__head">
+          <h2 class="section-title">Before you book</h2>
+          <p class="section-head__intro">The questions we hear most. For anything else, message us on WhatsApp.</p>
+        </header>
+
+        <!-- EDIT: answers are sample text. Edit the <p> inside each panel; confirm each one with the owners. -->
+        <div class="faq__list">
+          <div class="faq__item">
+            <h3><button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">How do I book an appointment?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+              <p>Fill in the booking form below and it opens WhatsApp with your request ready to send, or simply call the salon. Your slot is booked once the team replies to confirm it.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3><button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Do you offer home service?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+              <p>Yes, home service is available. Tell us your area, the service you need and the date, and the team will confirm whether they can come to you and what it will cost.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3><button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">Can I have a bridal trial before the wedding?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+              <p>Ask for a trial when you enquire about bridal makeup. It's the best way to settle the look, the products and the timing well before the day.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3><button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">How can I pay?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+              <!-- EDIT: list the payment modes the salon accepts (for example cash, UPI, cards) once confirmed. -->
+              <p>Ask when you book and the team will tell you the payment options at the salon and for home visits. Bridal bookings may need an advance to hold the date.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -266,39 +503,42 @@
 
         <div class="contact__body">
           <div class="contact__details">
-            <!-- EDIT: phone, WhatsApp, hours and map link are all set in script.js (SITE). -->
+            <!-- EDIT: phone, WhatsApp, address, hours and links are all set in script.js (SITE).
+                 The values written here are the same ones, shown if JavaScript is off. -->
             <dl class="details">
               <div class="details__row">
                 <dt>Salon</dt>
-                <dd>Meera's-The Beauty Saga</dd>
+                <dd>Meera's – The Beauty Saga &amp; Academy</dd>
               </div>
               <div class="details__row">
-                <dt>Location</dt>
-                <dd>Sudama Nagar, Indore,<br>Madhya Pradesh, India<br><span class="placeholder">Full street address to be added</span></dd>
+                <dt>Address</dt>
+                <dd data-address>630, Narendra Tiwari Marg, Sector D,<br>Sudama Nagar, Indore,<br>Madhya Pradesh 452001</dd>
               </div>
               <div class="details__row">
                 <dt>Phone</dt>
-                <dd data-phone><span class="placeholder">Phone number to be added</span></dd>
+                <dd class="details__phones">
+                  <a class="text-link" data-phone="primary" href="tel:+917000901183">+91 70009 01183</a>
+                  <a class="text-link" data-phone="alt" href="tel:+919826910703">+91 98269 10703</a>
+                </dd>
               </div>
               <div class="details__row">
                 <dt>WhatsApp</dt>
-                <dd><a class="text-link" href="#enquiry" data-whatsapp>Message us on WhatsApp</a></dd>
+                <dd><a class="text-link" href="https://wa.me/917000901183" data-whatsapp target="_blank" rel="noopener">Message us on WhatsApp</a></dd>
               </div>
               <div class="details__row">
                 <dt>Hours</dt>
-                <dd>
-                  <ul class="hours" data-hours>
-                    <li><span>Monday to Sunday</span><span class="placeholder">Hours to be confirmed</span></li>
-                  </ul>
-                </dd>
+                <dd data-hours>Open until 8:30 pm</dd>
               </div>
             </dl>
 
-            <div class="map" role="group" aria-label="Location map placeholder">
-              <svg class="map__pin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 0C5.4 0 0 5.3 0 11.8 0 20.6 12 32 12 32s12-11.4 12-20.2C24 5.300 18.600 0 12 0Zm0 16.500a4.600 4.600 0 1 1 0-9.200 4.600 4.600 0 0 1 0 9.200Z"/></svg>
-              <p class="map__place">Sudama Nagar, Indore</p>
-              <p class="map__hint">Map placeholder. The live Google map goes here once the address is confirmed.</p>
-              <a class="text-link" data-maps-link href="https://www.google.com/maps/search/?api=1&amp;query=Meera%27s-The+Beauty+Saga+Sudama+Nagar+Indore" target="_blank" rel="noopener">Open in Google Maps</a>
+            <!-- EDIT: the map searches Google Maps for the salon's name and address.
+                 To pin the exact listing, open it in Google Maps, choose Share > Embed a map, and paste that src here. -->
+            <div class="map">
+              <iframe
+                title="Map showing Meera's – The Beauty Saga, Sudama Nagar, Indore"
+                src="https://www.google.com/maps?q=Meera%27s+The+Beauty+Saga%2C+630+Narendra+Tiwari+Marg%2C+Sector+D%2C+Sudama+Nagar%2C+Indore+452001&amp;z=16&amp;output=embed"
+                width="600" height="360" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              <a class="text-link" data-maps-link href="https://g.co/kgs/CBFCUQE" target="_blank" rel="noopener">Open the Google listing for directions</a>
             </div>
           </div>
 
@@ -312,15 +552,25 @@
               <p class="field__error" id="f-name-error" hidden>Enter your name so we know who to reply to.</p>
             </div>
 
-            <div class="field">
-              <label for="f-service">Service</label>
-              <select id="f-service" name="service">
-                <option value="">Not sure yet</option>
-                <option>Hair &amp; Styling</option>
-                <option>Makeup</option>
-                <option>Bridal Beauty</option>
-                <option>Skin &amp; Beauty Treatments</option>
-              </select>
+            <div class="field-pair">
+              <div class="field">
+                <label for="f-service">Service</label>
+                <select id="f-service" name="service">
+                  <option value="">Not sure yet</option>
+                  <option>Hair &amp; Styling</option>
+                  <option>Makeup</option>
+                  <option>Bridal Beauty</option>
+                  <option>Skin &amp; Beauty Treatments</option>
+                  <option>Nails</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-place">Where</label>
+                <select id="f-place" name="place">
+                  <option>At the salon</option>
+                  <option>Home service</option>
+                </select>
+              </div>
             </div>
 
             <div class="field-pair">
@@ -357,32 +607,71 @@
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <div>
-        <a class="wordmark wordmark--light" href="#home" aria-label="Meera's-The Beauty Saga, back to top">
+      <div class="site-footer__brand">
+        <a class="wordmark wordmark--light" href="#home" aria-label="Meera's – The Beauty Saga, back to top">
           <span class="wordmark__name">Meera's</span>
           <span class="wordmark__tag">the beauty saga</span>
         </a>
-        <p class="site-footer__place">Beauty salon<br>Sudama Nagar, Indore</p>
+        <p>Beauty salon &amp; academy</p>
+        <a class="site-footer__social" data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener" aria-label="Meera's – The Beauty Saga on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-instagram"/></svg>
+          <span data-instagram-handle>@meerasthebeautysaga</span>
+        </a>
       </div>
-      <nav aria-label="Footer">
+
+      <div class="site-footer__col">
+        <h2 class="site-footer__heading">Visit</h2>
+        <address data-address>630, Narendra Tiwari Marg, Sector D,<br>Sudama Nagar, Indore,<br>Madhya Pradesh 452001</address>
+        <p data-hours>Open until 8:30 pm</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h2 class="site-footer__heading">Call</h2>
+        <p><a data-phone="primary" href="tel:+917000901183">+91 70009 01183</a></p>
+        <p><a data-phone="alt" href="tel:+919826910703">+91 98269 10703</a></p>
+        <p><a href="https://wa.me/917000901183" data-whatsapp target="_blank" rel="noopener">WhatsApp</a></p>
+      </div>
+
+      <nav class="site-footer__col" aria-label="Footer">
+        <h2 class="site-footer__heading">Explore</h2>
         <ul class="site-footer__nav">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#bridal">Bridal packages</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#academy">Academy</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <!-- DEMO NOTICE: remove this note once the business owner approves the site. -->
       <p class="site-footer__legal">
-        This page is an unofficial design concept prepared for presentation to the owner of Meera's-The Beauty Saga. It has not been commissioned, approved or endorsed by the business. Service names, descriptions and other copy are samples. Photographs are stock images from Unsplash and do not show the salon, its staff or its clients.
+        This page is an unofficial design concept prepared for presentation to the owners of Meera's – The Beauty Saga. It has not been commissioned, approved or endorsed by the business. Contact details and the Google rating come from the salon's public listings. Service lists, packages, course names and other copy are samples. Photographs are stock images from Unsplash and do not show the salon, its staff or its clients.
       </p>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp button -->
-  <a class="wa-float" href="#enquiry" data-whatsapp aria-label="Enquire on WhatsApp">
+  <!-- Floating WhatsApp button (desktop; phones get the bottom bar instead) -->
+  <a class="wa-float" href="https://wa.me/917000901183" data-whatsapp target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsapp"/></svg>
   </a>
+
+  <!-- Phone-only bottom bar -->
+  <nav class="action-bar" aria-label="Quick actions">
+    <a data-phone-link href="tel:+917000901183">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-phone"/></svg>
+      Call
+    </a>
+    <a href="https://wa.me/917000901183" data-whatsapp target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#whatsapp"/></svg>
+      WhatsApp
+    </a>
+    <a class="action-bar__book" href="#enquiry">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-calendar"/></svg>
+      Book
+    </a>
+  </nav>
 
   <!-- Gallery lightbox -->
   <dialog class="lightbox" id="lightbox" aria-label="Gallery image">
@@ -404,10 +693,10 @@
     </button>
   </dialog>
 
-  <!-- Notice shown while the WhatsApp number is still a placeholder -->
+  <!-- Shown only if SITE.whatsapp is left empty in script.js -->
   <dialog class="notice" id="notice" aria-labelledby="notice-title">
     <h2 class="notice__title" id="notice-title">WhatsApp number not set yet</h2>
-    <p>On the live site this button opens a WhatsApp chat with the salon. In this demo the number is still a placeholder, so nothing has been sent.</p>
+    <p>This button opens a WhatsApp chat with the salon once a number is set in script.js. Nothing has been sent.</p>
     <p class="notice__label">Message that would be sent</p>
     <blockquote class="notice__message" id="notice-message"></blockquote>
     <form method="dialog"><button class="btn btn--primary" type="submit">Close</button></form>
@@ -417,6 +706,10 @@
   <svg width="0" height="0" class="visually-hidden" aria-hidden="true" focusable="false">
     <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.600l2.800 6.100 6.600.700-4.900 4.500 1.400 6.500L12 17.100l-5.900 3.300 1.400-6.500L2.600 9.400l6.600-.700z"/></symbol>
     <symbol id="whatsapp" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2Zm0 18.200a8.200 8.200 0 0 1-4.200-1.150l-.3-.18-3 .78.800-2.900-.2-.300A8.200 8.200 0 1 1 12 20.200Zm4.500-6.100c-.25-.120-1.460-.720-1.680-.800-.230-.080-.390-.120-.560.120-.160.250-.640.800-.780.970-.140.160-.290.180-.530.060a6.700 6.700 0 0 1-1.980-1.220 7.400 7.400 0 0 1-1.370-1.700c-.140-.250 0-.380.110-.500.110-.110.250-.290.370-.430.120-.140.160-.250.250-.410.080-.160.040-.310-.020-.430-.060-.120-.560-1.340-.760-1.830-.200-.480-.400-.420-.560-.420h-.470a.900.900 0 0 0-.660.310c-.230.250-.860.840-.860 2.050s.880 2.380 1 2.540c.120.160 1.740 2.650 4.200 3.720.590.250 1.050.400 1.400.520.590.190 1.130.160 1.550.100.470-.070 1.460-.600 1.670-1.170.200-.580.200-1.070.140-1.170-.060-.110-.220-.170-.470-.290Z"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.600 2.500h3.100l1.500 4.600-2.100 1.600a12.600 12.600 0 0 0 6.200 6.200l1.600-2.100 4.600 1.500v3.100a2.100 2.100 0 0 1-2.300 2.100C10.600 19 5 13.400 4.500 4.800a2.100 2.100 0 0 1 2.100-2.300Z"/></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3V2Zm12 8H5v9h14v-9Zm0-4H5v2h14V6Zm-8.100 10.600-2.300-2.300 1.200-1.200 1.100 1.100 2.900-2.900 1.200 1.200-4.100 4.100Z"/></symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.200 2.500 11l1.300 1.500L5 11.500V20a1 1 0 0 0 1 1h4.500v-5.500h3V21H18a1 1 0 0 0 1-1v-8.500l1.200 1L21.500 11 12 3.200Zm5 15.800h-1.500v-5.500h-7V19H7V9.900l5-4.100 5 4.100V19Z"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.500 2.500h9a5 5 0 0 1 5 5v9a5 5 0 0 1-5 5h-9a5 5 0 0 1-5-5v-9a5 5 0 0 1 5-5Zm0 1.800a3.200 3.200 0 0 0-3.200 3.200v9a3.200 3.200 0 0 0 3.200 3.200h9a3.200 3.200 0 0 0 3.200-3.200v-9a3.200 3.200 0 0 0-3.200-3.200h-9ZM12 7.300a4.700 4.700 0 1 1 0 9.400 4.700 4.700 0 0 1 0-9.400Zm0 1.800a2.900 2.900 0 1 0 0 5.800 2.900 2.900 0 0 0 0-5.800Zm5-2.900a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200Z"/></symbol>
   </svg>
 
   <script src="script.js" defer></script>

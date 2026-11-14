@@ -1,8 +1,8 @@
-# Meera's-The Beauty Saga — website design concept
+# Meera's – The Beauty Saga — website design concept
 
-A one-page demo website for Meera's-The Beauty Saga, a beauty salon in Sudama Nagar, Indore.
+A one-page demo website for Meera's – The Beauty Saga, a beauty salon and academy in Sudama Nagar, Indore.
 
-**This is an unofficial concept.** It has not been commissioned, approved or endorsed by the business. It exists to show the owner what their website could look like.
+**This is an unofficial concept.** It has not been commissioned, approved or endorsed by the business. It exists to show the owners what their website could look like.
 
 Plain HTML, CSS and JavaScript. No build step, no dependencies.
 
@@ -20,39 +20,51 @@ Then visit http://localhost:8000.
 
 | Content | Status |
 | --- | --- |
-| Business name, category (beauty salon), locality (Sudama Nagar, Indore) | From the public listing |
-| Google rating of 5.0 | Reported on public listings, **not yet verified**. The page says so until `rating.verified` is set to `true` |
-| Service categories and the items under them | Proposed for the demo |
+| Business name, founders (Nikita and Pinky), address, both phone numbers, WhatsApp number | From the salon's public Google and Instagram listings |
+| Google rating (5.0 from 870+ reviews) and the listing link | From the Google listing. Update `SITE.rating` when the count changes |
+| Closing time (8:30 pm) | From the Google listing. Opening time and days are **not set yet** |
+| Service categories (makeup, skin, hair, nails, bridal) and home service | From the salon's Instagram bio |
+| Items listed under each service, bridal package names and inclusions | Sample content |
+| Bridal package prices | Placeholders (`₹ —`) |
+| Academy course names and descriptions | Placeholders. No fees, dates or certifications are shown |
+| Founder portraits and bios | Placeholders |
+| FAQ answers | Sample text, to be confirmed with the owners (payment modes especially) |
 | About text, hero description | Sample copy |
-| Phone and WhatsApp number | Supplied, set in `script.js` |
-| Hours, street address, map | Placeholders |
-| All photographs | Stock images from Unsplash. None show the salon, its staff or its clients |
-| Customer reviews | None shown. None were invented |
+| All photographs, including the Instagram tiles | Stock images from Unsplash. None show the salon, its staff or its clients |
+| Customer reviews | None shown. None were invented. The page links to Google instead |
 
 ## Editing
 
-**Contact details, hours, rating and map link** are in the `SITE` object at the top of `script.js`. Fill a value in and the placeholder on the page is replaced.
+**Contact details, address, hours, rating, links and bridal prices** are in the `SITE` object at the top of `script.js`. Change a value once and it updates everywhere (hero, contact section, footer, phone bar).
 
-- `whatsapp`: digits only, with country code, e.g. `919876543210`. While it is empty, WhatsApp buttons show a "number not set yet" notice with the message that would have been sent.
-- `rating.verified`: set to `true` after checking the salon's Google Business Profile. This hides the "to be confirmed" note.
+- `phone`, `phoneAlt`: as they should be displayed. Leave `phoneAlt` empty to hide the second number.
+- `whatsapp`: digits only, with country code, e.g. `919876543210`.
+- `hours`: fill in `opens` (e.g. `"10:00 am"`) and `days` (e.g. `"Monday to Sunday"`) once confirmed. While they are empty the page says "Open until 8:30 pm".
+- `rating.value`, `rating.count`, `rating.reviewsUrl`: the Google rating, review count and listing link.
+- `bridalPrices`: replace each `"₹ —"` with the real price.
+- `instagram`: handle and profile link.
 
-**Text and services** are in `index.html`. Look for comments starting with `EDIT:`. Each service is one `<li class="service">` block. To remove a category, delete its block, the matching image in `.services__stage`, and its `<option>` in the enquiry form.
+The same values are also written in `index.html` so the page still reads correctly without JavaScript. If you change a number in `SITE`, update the matching `tel:` / `wa.me` fallback in `index.html` too (search for the old number). The link-preview description in the `<head>` also mentions the rating.
 
-**Photographs** are in `assets/img/`. Replace a file with one of the same name, or change the `src` in `index.html`. Gallery tiles carry a `data-category` of `makeup`, `hair`, `bridal` or `interior` for the filter buttons.
+**Text, services, packages, courses and FAQ** are in `index.html`. Look for comments starting with `EDIT:` or `PLACEHOLDER`.
 
-**Colours, fonts and spacing** are CSS variables at the top of `styles.css`.
+- Each service is one `<li class="service">` block. To remove a category, delete its block, the matching image in `.services__stage`, and its `<option>` in the booking form.
+- Each bridal package is one `<li class="tier">`; each course is one `<li class="course">`; each FAQ is one `<div class="faq__item">` (keep the `id` / `aria-controls` pairs matching).
+- Founder portraits: the comment above each placeholder frame shows the `<img>` markup to swap in.
 
-**Before a real launch:** remove the `.demo-bar` notice at the top of `index.html`, the `noindex` meta tag, the sample notes, and the footer disclaimer.
+**Photographs** are in `assets/img/`. Replace a file with one of the same name, or change the `src` in `index.html` (update `width` and `height` to match). Gallery tiles carry a `data-category` of `makeup`, `hair`, `bridal`, `nails` or `interior` for the filter buttons. The six Instagram tiles are `insta-1.jpg` to `insta-6.jpg` (600 × 600).
+
+**Map.** The embedded map searches Google Maps for the salon's name and address. To pin the exact listing, open it in Google Maps, choose Share, then "Embed a map", and paste that `src` into the `<iframe>` in the contact section.
+
+**Link previews.** The Open Graph and Twitter tags in the `<head>` use absolute URLs (`https://nexvu.github.io/Demo/`). Change them if the site is published at a different address.
+
+**Colours, fonts and spacing** are CSS variables at the top of `styles.css`. `--section` controls the vertical padding of every section.
+
+**Before a real launch:** remove the `.demo-bar` notice at the top of `index.html`, the `noindex` meta tag and the footer disclaimer, and replace the stock photographs.
 
 ## Deploying to GitHub Pages
 
-All paths are relative, so the site works under `https://<user>.github.io/<repo>/`.
-
-1. Push this folder to a GitHub repository.
-2. In the repository, go to Settings, then Pages.
-3. Under "Build and deployment", choose "Deploy from a branch".
-4. Select the `main` branch and the `/ (root)` folder, then save.
-5. Wait a minute or two. The site URL appears at the top of the Pages settings.
+All paths are relative, so the site works under `https://<user>.github.io/<repo>/`. The workflow in `.github/workflows/static.yml` deploys the repository on every push to `main`.
 
 ## Image credits
 
