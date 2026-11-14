@@ -154,8 +154,11 @@
               <div class="founder__text">
                 <h4 class="founder__name">Nikita</h4>
                 <p class="founder__role">Co-founder</p>
-                <!-- PLACEHOLDER BIO: replace with Nikita's own short bio (what she does at the salon, how long she has been doing it). No credentials have been assumed. -->
-                <p class="founder__bio">Nikita runs Meera's alongside Pinky. Her story, in her own words, goes here.</p>
+                <p class="founder__bio">Nikita runs Meera's alongside Pinky.</p>
+                <!-- PLACEHOLDER BIO: Nikita's real bio goes here. Replace the whole <p class="placeholder"> below with
+                     a normal <p class="founder__bio"> holding two or three sentences in her own words.
+                     No credentials or experience have been assumed. -->
+                <p class="founder__bio placeholder">Her story, in her own words, goes here.</p>
               </div>
             </li>
             <li class="founder">
@@ -167,8 +170,11 @@
               <div class="founder__text">
                 <h4 class="founder__name">Pinky</h4>
                 <p class="founder__role">Co-founder</p>
-                <!-- PLACEHOLDER BIO: replace with Pinky's own short bio. No credentials have been assumed. -->
-                <p class="founder__bio">Pinky runs Meera's alongside Nikita. Her story, in her own words, goes here.</p>
+                <p class="founder__bio">Pinky runs Meera's alongside Nikita.</p>
+                <!-- PLACEHOLDER BIO: Pinky's real bio goes here. Replace the whole <p class="placeholder"> below with
+                     a normal <p class="founder__bio"> holding two or three sentences in her own words.
+                     No credentials or experience have been assumed. -->
+                <p class="founder__bio placeholder">Her story, in her own words, goes here.</p>
               </div>
             </li>
           </ul>
@@ -189,7 +195,7 @@
         <div class="services__body">
           <!-- Large image shown on desktop; it follows the category being read. -->
           <div class="services__stage">
-            <img class="is-active" data-stage="hair" src="assets/img/service-hair.jpg" width="900" height="1125" loading="lazy" alt="Stylist curling a client's hair with a curling iron">
+            <img class="is-active" data-stage="hair" src="assets/img/service-hair.jpg" width="900" height="1125" loading="lazy" alt="Stylist trimming a client's long dark hair with a comb and scissors">
             <img data-stage="makeup" src="assets/img/service-makeup.jpg" width="900" height="1125" loading="lazy" alt="Close-up of bridal makeup with bronze eyeshadow, a nath and kundan jewellery">
             <img data-stage="bridal" src="assets/img/service-bridal.jpg" width="900" height="1125" loading="lazy" alt="Woman in an ivory lehenga with a flowing dupatta">
             <img data-stage="skin" src="assets/img/service-skin.jpg" width="900" height="1125" loading="lazy" alt="Client relaxing during a facial with a cream mask">
@@ -199,7 +205,7 @@
           <!-- EDIT: each <li class="service"> is one category. Delete a block to remove it. -->
           <ul class="services__list">
             <li class="service is-active" data-service="hair">
-              <img class="service__img" src="assets/img/service-hair.jpg" width="900" height="1125" loading="lazy" alt="Stylist curling a client's hair with a curling iron">
+              <img class="service__img" src="assets/img/service-hair.jpg" width="900" height="1125" loading="lazy" alt="Stylist trimming a client's long dark hair with a comb and scissors">
               <div class="service__content">
                 <h3 class="service__name">Hair &amp; Styling</h3>
                 <p class="service__desc">Cuts, colour and finishing, shaped around how you actually wear your hair.</p>
@@ -288,11 +294,12 @@
         </header>
 
         <!-- EDIT: prices are set in ONE place: script.js, SITE.bridalPrices.
+             While a price is empty the card says "Price on request"; once set it says "From ₹X,XXX".
              Names and inclusions below are samples; edit them here. -->
         <ul class="tiers">
           <li class="tier">
             <h3 class="tier__name">Engagement</h3>
-            <p class="tier__price"><span class="visually-hidden">Price: </span><span data-price="engagement">₹ —</span></p>
+            <p class="tier__price" data-price="engagement">Price on request</p>
             <ul class="tier__items">
               <li>Makeup for one function</li>
               <li>Hairstyling</li>
@@ -302,7 +309,7 @@
           </li>
           <li class="tier">
             <h3 class="tier__name">Bridal</h3>
-            <p class="tier__price"><span class="visually-hidden">Price: </span><span data-price="bridal">₹ —</span></p>
+            <p class="tier__price" data-price="bridal">Price on request</p>
             <ul class="tier__items">
               <li>Wedding-day makeup</li>
               <li>Hairstyling and jewellery setting</li>
@@ -313,7 +320,7 @@
           </li>
           <li class="tier">
             <h3 class="tier__name">Bridal + Pre-bridal</h3>
-            <p class="tier__price"><span class="visually-hidden">Price: </span><span data-price="prebridal">₹ —</span></p>
+            <p class="tier__price" data-price="prebridal">Price on request</p>
             <ul class="tier__items">
               <li>Everything in Bridal</li>
               <li>Pre-bridal skin and hair care</li>
@@ -442,14 +449,15 @@
           </a>
         </header>
 
-        <!-- EDIT: replace these six tiles with the salon's own Instagram photographs (600 × 600). -->
+        <!-- EDIT: replace these six tiles with the salon's own Instagram photographs (600 × 600).
+             Every tile links to the profile set in script.js (SITE.instagram.url). -->
         <ul class="insta__grid">
-          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-1.jpg" width="600" height="600" loading="lazy" alt="Bridal makeup close-up with pink shimmer eyeshadow and a nath"></a></li>
-          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-2.jpg" width="600" height="600" loading="lazy" alt="Hands with mandala mehndi and long nude nails against a velvet lehenga"></a></li>
-          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-4.jpg" width="600" height="600" loading="lazy" alt="Bride in red with a side-swept updo and red roses in her hair"></a></li>
-          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-3.jpg" width="600" height="600" loading="lazy" alt="Hand with a soft nude manicure"></a></li>
-          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-5.jpg" width="600" height="600" loading="lazy" alt="Smiling bride with a kundan maang tikka covering her laugh with her hand"></a></li>
-          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener"><img src="assets/img/insta-6.jpg" width="600" height="600" loading="lazy" alt="Bride's hands with deep red mehndi, gold bangles and red nails"></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener" aria-label="View on Instagram: bridal makeup close-up with pink shimmer eyeshadow and a nath"><img src="assets/img/insta-1.jpg" width="600" height="600" loading="lazy" alt=""><span class="insta__overlay" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-instagram"/></svg></span></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener" aria-label="View on Instagram: hands with mandala mehndi and long nude nails against a velvet lehenga"><img src="assets/img/insta-2.jpg" width="600" height="600" loading="lazy" alt=""><span class="insta__overlay" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-instagram"/></svg></span></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener" aria-label="View on Instagram: bride in red with a side-swept updo and red roses in her hair"><img src="assets/img/insta-4.jpg" width="600" height="600" loading="lazy" alt=""><span class="insta__overlay" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-instagram"/></svg></span></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener" aria-label="View on Instagram: hand with a soft nude manicure"><img src="assets/img/insta-3.jpg" width="600" height="600" loading="lazy" alt=""><span class="insta__overlay" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-instagram"/></svg></span></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener" aria-label="View on Instagram: smiling bride with a kundan maang tikka covering her laugh with her hand"><img src="assets/img/insta-5.jpg" width="600" height="600" loading="lazy" alt=""><span class="insta__overlay" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-instagram"/></svg></span></a></li>
+          <li><a data-instagram-link href="https://www.instagram.com/meerasthebeautysaga" target="_blank" rel="noopener" aria-label="View on Instagram: bride's hands with deep red mehndi, gold bangles and red nails"><img src="assets/img/insta-6.jpg" width="600" height="600" loading="lazy" alt=""><span class="insta__overlay" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-instagram"/></svg></span></a></li>
         </ul>
       </div>
     </section>
@@ -527,7 +535,7 @@
               </div>
               <div class="details__row">
                 <dt>Hours</dt>
-                <dd data-hours>Open until 8:30 pm</dd>
+                <dd data-hours>Daily · closes 8:30 pm</dd>
               </div>
             </dl>
 
@@ -622,7 +630,7 @@
       <div class="site-footer__col">
         <h2 class="site-footer__heading">Visit</h2>
         <address data-address>630, Narendra Tiwari Marg, Sector D,<br>Sudama Nagar, Indore,<br>Madhya Pradesh 452001</address>
-        <p data-hours>Open until 8:30 pm</p>
+        <p data-hours>Daily · closes 8:30 pm</p>
       </div>
 
       <div class="site-footer__col">

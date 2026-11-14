@@ -25,14 +25,10 @@ const SITE = {
     "Madhya Pradesh 452001"
   ],
 
-  // Business hours. Closing time is from the Google listing.
-  // Fill in "opens" (e.g. "10:00 am") and "days" (e.g. "Monday to Sunday")
-  // once confirmed; while they are empty the page says "Open until 8:30 pm".
-  hours: {
-    days: "",
-    opens: "",
-    closes: "8:30 pm"
-  },
+  // Business hours, in 24-hour "HH:MM". Closing time is from the Google listing.
+  // While "open" is empty the page says "Daily · closes 8:30 pm".
+  // Fill it in (e.g. "10:00") and it becomes "Daily · 10:00 am – 8:30 pm".
+  hours: { open: "", close: "20:30" },
 
   // Google rating, review count and the link to the Google listing.
   rating: {
@@ -49,12 +45,13 @@ const SITE = {
     url: "https://www.instagram.com/meerasthebeautysaga"
   },
 
-  // Bridal package prices, shown in the "Bridal packages" section.
-  // Replace "₹ —" with the real price, e.g. "₹ 15,000" or "From ₹ 15,000".
+  // Bridal package starting prices, in rupees, numbers only (e.g. 15000).
+  // While a price is empty the card says "Price on request";
+  // once set it says "From ₹15,000".
   bridalPrices: {
-    engagement: "₹ —",
-    bridal: "₹ —",
-    prebridal: "₹ —"
+    engagement: "",
+    bridal: "",
+    prebridal: ""
   }
 };
 
@@ -64,11 +61,27 @@ const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selec
 const desktop = window.matchMedia("(min-width: 60rem)");
 const telHref = (number) => "tel:" + number.replace(/[^\d+]/g, "");
 
+// "20:30" -> "8:30 pm"
+function formatTime(value) {
+  const match = /^(\d{1,2}):(\d{2})$/.exec(String(value).trim());
+  if (!match) return String(value).trim(); // already written out, e.g. "8:30 pm"
+  const hour = Number(match[1]);
+  return `${hour % 12 || 12}:${match[2]} ${hour < 12 ? "am" : "pm"}`;
+}
+
 function hoursText() {
-  const { days, opens, closes } = SITE.hours;
-  if (!closes) return "";
-  const time = opens ? `${opens} to ${closes}` : `Open until ${closes}`;
-  return days ? `${days}, ${opens ? time : time.toLowerCase()}` : time;
+  const { open, close } = SITE.hours;
+  if (!close) return "";
+  return open
+    ? `Daily · ${formatTime(open)} – ${formatTime(close)}`
+    : `Daily · closes ${formatTime(close)}`;
+}
+
+// 15000 -> "From ₹15,000"; empty -> "Price on request"
+function priceText(value) {
+  const digits = String(value == null ? "" : value).replace(/[^\d]/g, "");
+  if (!digits) return "Price on request";
+  return "From ₹" + Number(digits).toLocaleString("en-IN");
 }
 
 /* ---------- Apply SITE details to the page ---------- */
@@ -108,8 +121,7 @@ function applySiteDetails() {
   $$("[data-instagram-handle]").forEach((el) => { el.textContent = SITE.instagram.handle; });
 
   $$("[data-price]").forEach((el) => {
-    const price = SITE.bridalPrices[el.dataset.price];
-    if (price) el.textContent = price;
+    el.textContent = priceText(SITE.bridalPrices[el.dataset.price]);
   });
 }
 
@@ -138,26 +150,37 @@ function initNavigation() {
   });
   desktop.addEventListener("change", () => setMenu(false));
 
-  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 40);
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  // Highlight the nav link of the section crossing the middle of the screen.
+  // Every section is watched, so one without a nav link (hero, Instagram, FAQ)
+  // clears the highlight instead of leaving the previous link lit.
+  const setCurrent = (id) => {
+    links.forEach((link) => {
+      if (id && link.getAttribute("href") === "#" + id) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+  };
+  const sections = $$("main > section[id]");
+  const lastSection = sections[sections.length - 1];
+  const atPageEnd = () => window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
 
-  // Highlight the section currently in view
-  const sections = links.map((link) => $(link.getAttribute("href"))).filter(Boolean);
   const observer = new IntersectionObserver(
     (entries) => {
+      if (atPageEnd()) return; // handled in onScroll below
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((link) => {
-          const current = link.getAttribute("href") === "#" + entry.target.id;
-          if (current) link.setAttribute("aria-current", "true");
-          else link.removeAttribute("aria-current");
-        });
+        if (entry.isIntersecting) setCurrent(entry.target.id);
       });
     },
     { rootMargin: "-45% 0px -50% 0px" }
   );
   sections.forEach((section) => observer.observe(section));
+
+  const onScroll = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 40);
+    // At the very bottom the footer fills the screen: keep the last section (Contact) lit
+    if (atPageEnd() && window.scrollY > 0) setCurrent(lastSection.id);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 }
 
 /* ---------- Services: swap the large image as each category is explored ---------- */

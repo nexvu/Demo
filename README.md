@@ -22,10 +22,10 @@ Then visit http://localhost:8000.
 | --- | --- |
 | Business name, founders (Nikita and Pinky), address, both phone numbers, WhatsApp number | From the salon's public Google and Instagram listings |
 | Google rating (5.0 from 870+ reviews) and the listing link | From the Google listing. Update `SITE.rating` when the count changes |
-| Closing time (8:30 pm) | From the Google listing. Opening time and days are **not set yet** |
+| Closing time (8:30 pm) | From the Google listing. Opening time is **not set yet**; the page assumes the salon is open daily |
 | Service categories (makeup, skin, hair, nails, bridal) and home service | From the salon's Instagram bio |
 | Items listed under each service, bridal package names and inclusions | Sample content |
-| Bridal package prices | Placeholders (`₹ —`) |
+| Bridal package prices | Not set. Cards say "Price on request" |
 | Academy course names and descriptions | Placeholders. No fees, dates or certifications are shown |
 | Founder portraits and bios | Placeholders |
 | FAQ answers | Sample text, to be confirmed with the owners (payment modes especially) |
@@ -39,9 +39,9 @@ Then visit http://localhost:8000.
 
 - `phone`, `phoneAlt`: as they should be displayed. Leave `phoneAlt` empty to hide the second number.
 - `whatsapp`: digits only, with country code, e.g. `919876543210`.
-- `hours`: fill in `opens` (e.g. `"10:00 am"`) and `days` (e.g. `"Monday to Sunday"`) once confirmed. While they are empty the page says "Open until 8:30 pm".
+- `hours`: 24-hour times. While `open` is empty the page says "Daily · closes 8:30 pm"; fill it in (e.g. `"10:00"`) and it becomes "Daily · 10:00 am – 8:30 pm".
 - `rating.value`, `rating.count`, `rating.reviewsUrl`: the Google rating, review count and listing link.
-- `bridalPrices`: replace each `"₹ —"` with the real price.
+- `bridalPrices`: starting prices in rupees, numbers only (e.g. `15000`). An empty price shows "Price on request"; a set one shows "From ₹15,000".
 - `instagram`: handle and profile link.
 
 The same values are also written in `index.html` so the page still reads correctly without JavaScript. If you change a number in `SITE`, update the matching `tel:` / `wa.me` fallback in `index.html` too (search for the old number). The link-preview description in the `<head>` also mentions the rating.
